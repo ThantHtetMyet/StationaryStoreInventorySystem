@@ -1,0 +1,146 @@
+﻿@model ssi_system_ver_i.Models.department
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "Collection_Point_Change";
+}
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Head_LeftPanel");
+
+            department depart_obj = (department)ViewBag.Department_Obj;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <div class="row">
+                <h2 style="text-align:center;">Collection Point</h2>
+            </div>
+            <div class="row" style="padding-left:15px;">
+                <h3>Department: @ViewBag.Dept_name</h3>
+            </div>
+        </div>
+        <div class="row" style="width:100%;text-align:right;">
+            <button class="btn-primary" id="change_collection_point_btn_id" onclick="Change_Collection_Point()">
+                + Change_Collection_Point
+            </button>
+        </div>
+
+        <div class="row">
+            @using (Html.BeginForm("Change_Collection_Point", "Head", FormMethod.Post))
+            {
+            <table class="table-responsive" style="width:100%;">
+                <tr>
+                    <th>
+                        Department Code
+                    </th>
+                    <th>
+                        Department Name
+                    </th>
+                    <th>
+                        Contact Name
+                    </th>
+                    <th>
+                        Collection Point
+                    </th>
+                    <th>
+                        Representative Name
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @depart_obj.department_code
+                    </td>
+                    <td>
+                        @depart_obj.department_name
+                    </td>
+                    <td>
+                        @depart_obj.contact_name
+                    </td>
+                    <td>
+                        <label id="collection_point_label_id" style="font-weight:normal;">
+                            @depart_obj.collection_point
+                        </label>
+                        <select id="collection_point_list_id" name="collection_point_list" style="visibility:hidden;"></select>
+                    </td>
+                    <td>
+                        @depart_obj.representative_name
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button style="visibility:hidden;" class="btn-danger" type="submit" id="Change_Collection_Point_button_id">Change Collection Point</button>
+                    </td>
+                </tr>
+            </table>
+            }
+        </div>
+    </div>
+    </div>
+           
+<script type="text/javascript">
+    function Change_Collection_Point()
+    {
+        document.getElementById('change_collection_point_btn_id').style.visibility = 'hidden';
+        var ajax_obj = {
+            name: "change_collection_point",
+            main_data: ["item_one"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Change_Collection_Point",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response)
+            {
+                // alert("SUCCESS");
+                var drop_down_list = document.getElementById("collection_point_list_id");
+                document.getElementById('collection_point_label_id').style.display = 'none';
+                var button_id = document.getElementById("Change_Collection_Point_button_id");
+                button_id.style.visibility = 'visible';
+                drop_down_list.options.length = 0;
+                
+                var staff_lis = JSON.stringify(response.key_staff_lis);
+                var data = staff_lis.split(",");
+
+                for (i = 0; i < data.length; i++) {
+                    data[i] = data[i].replace('[', '');
+                    data[i] = data[i].replace(']', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('\\', '');
+                    var option = document.createElement("option");
+                    option.text = data[i];
+                    option.value = data[i];
+                    drop_down_list.add(option, 0);
+                    
+                }
+                // Response Fail
+                drop_down_list.style.visibility = "visible";
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>
+

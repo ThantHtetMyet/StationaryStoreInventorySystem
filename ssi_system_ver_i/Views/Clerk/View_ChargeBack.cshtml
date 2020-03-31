@@ -1,0 +1,133 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "Charge_Back";
+}
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Clerk_LeftPanel");
+
+            List<orders> order_lis = (List<orders>)ViewBag.Order_List;
+            List<item> item_lis = (List<item>)ViewBag.Item_List;
+            List<staff> staff_lis = (List<staff>)ViewBag.Staff_List;
+            List<department> department_lis = (List<department>)ViewBag.Department_List;
+
+            string dept_name = "";
+            int total = 0;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+
+        <div class="row" style="text-align:center;">
+            <h2>ChargeBack</h2>
+        </div>
+
+        <div class="row">
+            @for (int i = 0; i < department_lis.Count; i++)
+            {
+                int sub_total = item_lis[i].unit_price * order_lis[i].actual_delivered_quantity_by_clerk;
+
+                Boolean head_flag = false;
+                Boolean button_flag = false;
+
+                if (i == 0 || dept_name != department_lis[i].department_name || i + 1 == order_lis.Count)
+                {
+
+                    if (i == 0)
+                    {
+                        head_flag = true;
+                    }
+                    else if (i + 1 == order_lis.Count)
+                    {
+                        button_flag = true;
+                    }
+                    else if (dept_name != department_lis[i].department_name)
+                    {
+                        head_flag = true;
+                        button_flag = true;
+                    }
+                    dept_name = department_lis[i].department_name;
+                }
+                if (button_flag)
+                {
+
+                    button_flag = false;
+
+                    if (i + 1 != order_lis.Count)
+                    {
+                        <div class="row">
+                            <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10" style="text-align:right;">
+                                <label style="font-weight:bold;">Total</label>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                                <i> @total </i>
+                                $
+                            </div>
+                        </div>
+                        total = 0;
+                    }
+                }
+                if (head_flag)
+                {
+                    head_flag = false;
+
+                    <h2>@dept_name</h2>
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                            Item Name
+                        </div>
+
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:right;font-weight:bold;">
+                            Unit Price
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                            Quantity
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:center;font-weight:bold;">
+                            Sub_Total
+                        </div>
+                    </div>
+                }
+
+                if (!head_flag && !button_flag)
+                {
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                            @item_lis[i].item_description
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:right;">
+                            @item_lis[i].unit_price
+                            &nbsp; x
+                        </div>
+                        <div class="col-xs-2 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                            @order_lis[i].actual_delivered_quantity_by_clerk
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:center;">
+                            @sub_total
+                        </div>
+                    </div>
+                }
+                if (i + 1 == order_lis.Count)
+                {
+                    total = sub_total + total;
+                    <div class="row">
+                        <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10" style="text-align:right;">
+                            <label style="font-weight:bold;">Total</label>
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                            <i> @total </i>
+                            $
+                        </div>
+                    </div>
+                    total = 0;
+
+                }
+                total = sub_total + total;
+            }
+        </div>
+    </div>
+</div>

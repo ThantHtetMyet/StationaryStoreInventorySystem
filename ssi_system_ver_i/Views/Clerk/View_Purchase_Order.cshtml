@@ -1,0 +1,131 @@
+﻿@model ssi_system_ver_i.Models.items_warehouse
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Purchase_Order";
+}
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Clerk_LeftPanel");
+            List<items_warehouse> item_ware_lis = (List<items_warehouse>)ViewBag.Item_WareHouse_lis;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">Purchase Order</h2>
+        </div>
+
+        <div class="row">
+            @if (item_ware_lis.Count == 0)
+            {
+                <h1 style="text-align:center;">
+                    <i>
+                        No Item to purchase !
+                    </i>
+                </h1>
+            }
+            else
+            {
+                <table class="table-responsive" style="width:100%;">
+                    @for (int i = 0; i < item_ware_lis.Count; i++)
+                    {
+                        items_warehouse item_ware = item_ware_lis[i];
+
+                        if (i == 0)
+                        {
+                            <tr>
+                                <th style="text-align:left;">
+                                    Item Name
+                                </th>
+                                <th style="text-align:center;">
+                                    Stock Balance
+                                </th>
+                                <th style="text-align:center;">
+                                    Reorder Level
+                                </th>
+                                <th style="text-align:center;">
+                                    Reorder Quantity
+                                </th>
+                                <th style="text-align:right;">
+                                    Reorder
+                                </th>
+                            </tr>
+                        }
+                        <tr>
+                            <td style="text-align:left;" height="50">
+                                @item_ware.item.item_description
+                            </td>
+                            <td style="text-align:center;" height="50">
+                                @item_ware.stock_balance
+                            </td>
+                            <td style="text-align:center;" height="50">
+                                @item_ware.reorder_level
+                            </td>
+                            <td style="text-align:center;" height="50">
+                                @item_ware.reorder_quantity
+                            </td>
+                            <td style="text-align:center;" height="50">
+                                <button class="btn-primary" style="float:right;" type="button" id="reorder_item_btn" value="Add" onclick="Reorder_Item('@item_ware.items_warehouseId')">
+                                    + Reorder
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+
+        </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    function Reorder_Item(item_ware_id)
+    {
+        //alert("Reorder id=>" + item_ware_id);
+
+        var ajax_obj = {
+            name: item_ware_id,
+            main_data: ["item_ware_request"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Clerk/Ajax_Purchase_Order",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+                //alert("SUCCESS");
+                var data = JSON.stringify(response.supplier_and_quantity_key);
+                var supplier_out_of_status = JSON.stringify(response.supplier_out_of_stock_status);
+                supplier_out_of_status = supplier_out_of_status.replace('"', '');
+                supplier_out_of_status = supplier_out_of_status.replace('"', '');
+
+                if (supplier_out_of_status == "OUT_OF_STOCK_IN_SUPPLIER")
+                {
+                    alert("OUT_OF_STOCK_IN_SUPPLIER");
+                }
+                else
+                {
+                alert(data);
+                }
+
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>

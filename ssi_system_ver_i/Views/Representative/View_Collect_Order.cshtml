@@ -1,0 +1,103 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Collect_Order";
+}
+
+
+    <div class="row" style="padding-top:70px;">
+        <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+            @{
+                Html.RenderPartial("_Layout_Representative_LeftPanel");
+                List<orders> order_lis = (List<orders>)ViewBag.Order_List_Approved_by_Clerk;
+            }
+        </div>
+
+        <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+            <div class="row" style="text-align:center;">
+                <h2>Collect Orders</h2>
+            </div>
+            <div class="row">
+                @if (order_lis.Count == 0)
+                {
+                    <h1 style="text-align:center;">
+                        <i>
+                            No Items to collect !
+                        </i>
+                    </h1>
+                }
+                else
+                {
+                    using (Html.BeginForm("Actual_Quantity_Received_by_Representative", "Representative", FormMethod.Post))
+                    {
+                        <input style="visibility:hidden;" type="text" class="total_actual_delivered_quantity_bx" name="total_actual_delivered_quantity_bx" id="total_actual_delivered_quantity_bx" value="@order_lis.Count" />
+
+                        <table class="table" style="width:100%;">
+                            <tr class="success">
+                                <th>
+                                    Order ID
+                                </th>
+                                <th>
+                                    Delivered Date
+                                </th>
+                                <th>
+                                    Item Name
+                                </th>
+                                <th>
+                                    Delivered Quantity
+                                </th>
+                                <th> Actual Quantity</th>
+                            </tr>
+
+                            @for (int i = 0; i < order_lis.Count; i++)
+                            {
+                                orders temp_order = order_lis[i];
+
+                                <tr class="info">
+                                    <td>
+                                        <input style="display:none;" type="number" name="order_id_bx_@i" id="order_id_@i" value="@temp_order.ordersId" />
+
+                                        @temp_order.ordersId
+                                    </td>
+                                    <td>
+                                        @temp_order.delivered_order_date
+                                    </td>
+                                    <td>
+                                        @temp_order.item_obj.item_description
+                                    </td>
+                                    <td>
+                                        @temp_order.actual_delivered_quantity_by_clerk
+                                    </td>
+                                    <td>
+                                        <input type="number" name="actual_quantity_received_by_representative_@i" id="actual_quantity_received_by_representative_@i" placeholder="quantity" required />
+                                    </td>
+                                </tr>
+                            }
+                            <tr class="info">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align:center;">
+                                    <button class="btn-info" type="submit">Acknowledge</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+        <div class="col-sm-2 col-xs-2 col-lg-2 col-md-2">
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function Collect_Orders() {
+        var num_item_request = document.getElementById("total_actual_delivered_quantity_bx");
+        num_item_request.value = num_item_request.value;
+        num_item_request.innerHTML = num_item_request.value;
+        alert(num_item_request.value);
+    }
+</script>

@@ -1,0 +1,149 @@
+﻿
+@model ssi_system_ver_i.Models.adjustment_voucher
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Manager_Adjustment_Voucher";
+}
+
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Manager_LeftPanel");
+
+            List<adjustment_voucher> adjust_lis = (List<adjustment_voucher>)ViewBag.Adjust_List;
+            List<item> item_lis = (List<item>)ViewBag.Item_List;
+            Boolean flag = false;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row" style="text-align:center;">
+            <h2>Adjustment_Voucher</h2>
+        </div>
+
+        <div class="row">
+            <table class="table">
+
+                @if (adjust_lis.Count != 0)
+                {
+                    <tr class="success">
+                        <th>
+                            Item Name
+                        </th>
+                        <th colspan="2" style="text-align:left;">
+                            Unit Price
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                }
+                @for (int i = 0; i < adjust_lis.Count; i++)
+                {
+                    int sub_total = item_lis[i].unit_price * adjust_lis[i].item_quantity;
+
+                    if (sub_total > 250)
+
+                    {
+                        <tr class="info">
+                            <td>
+                                @item_lis[i].item_description
+                            </td>
+                            <td style="text-align:center;">
+                                @item_lis[i].unit_price
+                            </td>
+                            <td>
+                                x
+                            </td>
+                            <td>
+                                @adjust_lis[i].item_quantity
+                            </td>
+                            <td>
+                                @sub_total
+                            </td>
+                            <td>
+                                <input type="button" id="Approve_Adjustment_Item_btn_id" onclick="Approve_Adjustment_Item('@adjust_lis[i].adjustment_voucherId')" value="Approve" class="btn-info">
+                                <input type="button" id="Reject_Adjustment_Item_btn_id" onclick="Reject_Adjustment_Item('@adjust_lis[i].adjustment_voucherId')" value="Reject" class="btn-danger" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function Approve_Adjustment_Item(adjustment_id) {
+        var ajax_obj = {
+            name: adjustment_id,
+            main_data: [adjustment_id],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Manager/Ajax_Approve_Adjustment_ID",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+
+    function Reject_Adjustment_Item(adjustment_id) {
+        var ajax_obj = {
+            name: adjustment_id,
+            main_data: [adjustment_id],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Manager/Ajax_Reject_Adjustment_ID",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+                //alert("SUCCESS");
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>
+
+

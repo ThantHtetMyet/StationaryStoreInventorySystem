@@ -1,0 +1,418 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Request_Item";
+}
+
+
+    <div class="row" style="padding-top:70px;">
+        <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+            @{
+                Html.RenderPartial("_Layout_Staff_LeftPanel");
+                }
+        </div>
+
+        <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+            <div class="row">
+                <h2 style="text-align:center;">Request Item  </h2>
+            </div>
+            
+            <div class="row" style="width:100%;text-align:right;">
+                <button class="btn-primary" id="request_item_btn_id_one" value="Add" onclick="Create_Request_Item_Form()">
+                    + Request Item
+                </button>
+                <button class="btn-primary" style="display:none;float:right;" id="request_item_btn_id_two" value="Add" onclick="Append_Request_Item_Form()">
+                    + Add
+                </button>
+            </div>
+            
+            <div class="row" style="padding-top:10px;">
+                @{
+                    List<orders> orders_lis = (List<orders>)ViewBag.order_lis;
+                    List<string> item_description_lis = (List<string>)ViewBag.item_description_lis;
+
+                    if (orders_lis.Count == 0)
+                    {
+                        <div class="jumbotron">
+                            <h2 id="no_request_txt" style="text-align:center;">
+                                <i>
+                                    No Requested Item!
+                                </i>
+                            </h2>
+                        </div>
+                    }
+                    else
+                    {
+                        <table style="width:100%;" class="table">
+                            @for (int i = 0; i < orders_lis.Count; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    <tr class="success">
+                                        <th style="text-align:center;">
+                                            OrdersID
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Order Date
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Item Code
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Quantity
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Edit
+                                        </th>
+                                        <th style="text-align:center;">
+                                            Delete
+                                        </th>
+                                    </tr>
+                                }
+                                orders temp = orders_lis[i];
+                                <tr style="text-align:center;" class="info">
+                                    <td>
+                                        @temp.ordersId
+                                    </td>
+                                    <td>
+                                        @temp.start_order_date
+                                    </td>
+                                    <td>
+                                        @temp.item_obj.item_description
+                                    </td>
+                                    <td>
+                                        @temp.proposed_quantity
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <input class="btn-danger" type="button" onclick="Edit_Item_Request(@temp.ordersId)" value="Edit" />
+
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <input class="btn-danger" type="button" onclick="Delete_Item_Request(@temp.ordersId)" value="Delete" />
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                }
+
+            </div>
+            <div class="edit_div" style="text-align:center;">
+                <table class="table" id="edit_item_request_data_table" style="display:none;width:100%;" border="1">
+                    <tr class="danger">
+                        <td colspan="3"  style="text-align:center;">
+                            <h1>
+                                Update Request
+                            </h1>
+                        </td>
+                    </tr>
+
+                    <tr class="success">
+                        <th style="text-align:center;">
+                            Order ID
+                        </th>
+                        <th style="text-align:center;">
+                            Item Code
+                        </th>
+                        <th style="text-align:center;">
+                            Quantity
+                        </th>
+
+                    </tr>
+
+                    @using (Html.BeginForm("Edit_New_Request_Item", "Staff", FormMethod.Post))
+                    {
+
+                        <tr class="info">
+                            <td>
+                                <input id="edit_order_id" name="edit_order_id" style="text-align:center;" readonly />
+                            </td>
+                            <td class="new_item_row">
+                                <input id="edit_item_code" name="edit_item_code" style="text-align:center;" readonly/>
+                            </td>
+                            <td>
+                                <input  style="text-align:center;" class="" type="number" name="edit_quantity_bx" id="edit_quantity_bx" placeholder="quantity..." />
+                            </td>
+                        </tr>
+
+                        <tr class="info">
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button type="submit" id="Add_one_Damaged_Item" class="btn btn-danger">Submit</button>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+            <div class="row" style="text-align:center;visibility:hidden;" id="add_item_request_div_id">
+                @using (Html.BeginForm("Create_New_Request_Item", "Staff", FormMethod.Post))
+                {
+                    <input type="number" id="number_of_request_item_id" name="number_of_request_items" style="visibility:hidden;"/>
+
+                    <table class="table" id="new_item_request_table" style="width:100%;">
+                        <tr>
+                            <td colspan="2">
+                                <h3>
+                                    <i>
+                                        Requsition Form
+                                    </i>
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr class="success">
+                            <th style="text-align:center;">
+                                Item Code
+                            </th>
+                            <th style="text-align:center;">
+                                Quantity
+                            </th>
+
+                        </tr>
+
+                        <tr class="info">
+                            <td class="new_item_row">
+                                <select id="item_code_list_3" name="item_code_list_3"></select>
+                            </td>
+                            <td>
+                                <input type="number" name="quantity_bx_3" id="quantity_bx_3" placeholder="quantity..." required />
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4"></div>
+                        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+                            <button class="btn-info" type="submit" id="Add_request_Item" onclick="add_request_item()">Submit</button>
+                            <button class="btn-danger" type="button" id="Cancel_add_request_item" onclick="cancel_add_request_item()">Cancel</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function Create_Request_Item_Form() {
+        //alert("Create Request Item Form");
+
+        var request_btn_one = document.getElementById('request_item_btn_id_one');
+
+        var request_btn_two = document.getElementById('request_item_btn_id_two');
+
+        var add_request_div = document.getElementById("add_item_request_div_id");
+        var no_request_txt = document.getElementById('no_request_txt');
+        
+        // Create Table Row and append to Table
+        var add_item_request_table = document.getElementById("new_item_request_table");
+
+         // Table Row Count
+        var table_row_count = add_item_request_table.rows.length; 
+
+        // Number of Item Requests
+        var num_item_request = document.getElementById("number_of_request_item_id");
+        num_item_request.value = table_row_count;
+        
+        request_btn_one.style.display = 'none';
+        request_btn_two.style.display = 'block';
+
+        //alert("Add Request");
+        var ajax_obj = {
+            name: "add_item_request",
+            main_data: ["item_one"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Staff/Ajax_Add_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                //alert("Success Case! Congratulation");
+                //alert(response.total_price);
+                var drop_down_list = document.getElementById("item_code_list_3");
+
+                var temp = JSON.stringify(response.key_itemname_lis);
+                var data = temp.split(",");
+
+                for (i = 0; i < data.length; i++) {
+                    data[i] = data[i].replace('[', '');
+                    data[i] = data[i].replace(']', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('\\', '');
+                    var option = document.createElement("option");
+
+                    option.text = data[i];
+                    option.value = data[i];
+                    drop_down_list.add(option, 0);
+                }
+                add_request_div.style.visibility = 'visible';
+                // alert(data);
+                //alert(type(data));
+
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+    }
+
+    function Append_Request_Item_Form()
+    {
+        // Create Table Row and append to Table
+        var add_item_request_table = document.getElementById("new_item_request_table");
+
+        // Create New Row
+        var row = add_item_request_table.insertRow(table_row_count);
+        row.className = "info";
+        
+        // Table Row Count
+        var table_row_count = add_item_request_table.rows.length; 
+
+        // Number of Item Requests
+        var num_item_request = document.getElementById("number_of_request_item_id");
+        num_item_request.value = table_row_count;
+        
+        // Select List for Item Request
+        var first_drop_down_list = document.getElementById("item_code_list_3"); // COPY select box from first row
+        var first_drop_down_list_value = first_drop_down_list.innerHTML;
+
+        var cell1 = row.insertCell(0);
+        var item_lis = document.createElement("select");
+        item_lis.id = "item_code_list_" + table_row_count;
+        item_lis.name = "item_code_list_" + table_row_count;
+        var select_box_options_value = item_lis.innerHTML + first_drop_down_list_value;
+        item_lis.innerHTML = select_box_options_value;
+        cell1.appendChild(item_lis);
+
+        // Quantity Box 
+        var cell2 = row.insertCell(1);
+        var quantity_bx_ele = document.createElement("input");
+        quantity_bx_ele.type = "number";
+        quantity_bx_ele.placeholder = "quantity";
+        quantity_bx_ele.required = true;
+        quantity_bx_ele.id = "quantity_bx_" + table_row_count;
+        quantity_bx_ele.name = "quantity_bx_" + table_row_count;
+        cell2.appendChild(quantity_bx_ele);
+
+    }
+
+    function cancel_add_request_item() {
+        document.location.reload();
+    }
+
+    function Edit_Item_Request(data)
+    {
+        alert("Edit Request");
+        var ajax_obj = {
+            name: data,
+            main_data: ["item_one"],
+        };
+
+        var edit_table = document.getElementById("edit_item_request_data_table");
+        edit_table.style.display = "";
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Staff/Ajax_Edit_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                //alert("Success Case! Congratulation");
+                //alert(response.total_price);
+                var label_order_id = document.getElementById("edit_order_id")
+                var label_item_code = document.getElementById("edit_item_code")
+                var input_order_id = document.getElementById("edit_quantity_bx")
+
+                var order_id = JSON.stringify(response.order_id);
+                var order_item_description = JSON.stringify(response.order_item_description);
+                var order_quantity = JSON.stringify(response.order_quantity);
+
+                order_item_description = order_item_description.replace('"', '');
+                order_item_description = order_item_description.replace('"', '');
+                order_item_description = order_item_description.replace('\\', '');
+
+                label_order_id.value = order_id;
+                label_item_code.value = order_item_description;
+                input_order_id.value = order_quantity;
+
+                edit_item_request_data_table.style.visibility = 'visible';
+                // alert(data);
+                //alert(type(data));
+
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+        var table = document.getElementById("new_damaged_data_table").insertRow(0);
+        var one_bx = document.createElement("input");
+
+        one_bx.setAttribute("type", "text");
+        one_bx.setAttribute("placeholder", "Item Code");
+    }
+    function Delete_Item_Request(data)
+    {
+        var ajax_obj = {
+            name: data,
+            main_data: ["item_one"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Staff/Ajax_Delete_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response)
+            {
+                //alert("Success Case! Congratulation");
+                location.reload();
+                //alert(response.total_price);
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+
+    function Cancel_Request_Item() {
+        document.location.reload();
+    }
+</script>

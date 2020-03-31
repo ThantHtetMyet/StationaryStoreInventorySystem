@@ -1,0 +1,205 @@
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.dll.config
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.pdb
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.exe
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.exe.config
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.rsp
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.exe
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.exe.config
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.rsp
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.AppContext.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Console.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Compression.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Pipes.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Claims.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.ValueTuple.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XPath.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.exe
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.exe.config
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.rsp
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\VBCSCompiler.exe
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Antlr3.Runtime.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Newtonsoft.Json.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Helpers.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Mvc.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Optimization.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Razor.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Deployment.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Razor.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\WebGrease.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Helpers.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Mvc.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Optimization.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Razor.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Deployment.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Razor.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Newtonsoft.Json.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Antlr3.Runtime.pdb
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csprojAssemblyReference.cache
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csproj.CoreCompileInputs.cache
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csproj.CopyComplete
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.pdb
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.SqlServer.dll
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.xml
+C:\Users\pluto\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.SqlServer.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.dll.config
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\ssi_system_ver_i.pdb
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.exe
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.exe.config
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csc.rsp
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.exe
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.exe.config
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\csi.rsp
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.AppContext.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Console.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Compression.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Claims.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.ValueTuple.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.exe
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.exe.config
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\vbc.rsp
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\VBCSCompiler.exe
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Antlr3.Runtime.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.SqlServer.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Newtonsoft.Json.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Helpers.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Mvc.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Optimization.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Razor.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Razor.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\WebGrease.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\EntityFramework.SqlServer.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Helpers.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Mvc.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Optimization.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.Razor.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Web.WebPages.Razor.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Newtonsoft.Json.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Antlr3.Runtime.pdb
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csprojAssemblyReference.cache
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csproj.CoreCompileInputs.cache
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.csproj.CopyComplete
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\obj\Debug\ssi_system_ver_i.pdb
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Bcl.HashCode.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.EntityFrameworkCore.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Logging.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Options.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Buffers.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Collections.Immutable.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.ComponentModel.Annotations.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Memory.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Numerics.Vectors.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Bcl.HashCode.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.EntityFrameworkCore.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Logging.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Options.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Buffers.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Collections.Immutable.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Memory.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Numerics.Vectors.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Thant Htet Myet\Documents\Workspace\.NET Framework\AD_Project\ssi_system_ver_i\ssi_system_ver_i\bin\System.Threading.Tasks.Extensions.xml

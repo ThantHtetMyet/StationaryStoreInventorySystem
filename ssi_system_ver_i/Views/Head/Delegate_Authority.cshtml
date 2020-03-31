@@ -1,0 +1,255 @@
+﻿@model ssi_system_ver_i.Models.staff
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "Delegate_Authority";
+}
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Head_LeftPanel");
+
+            staff_representative staff_repre_obj = (staff_representative) ViewBag.Staff_Representative;
+        }
+    </div>
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">
+                Delegate_Authority
+            </h2>
+        </div>
+        <div class="row">
+            <h3>Department: @ViewBag.Dept_name</h3>
+        </div>
+        <div class="row">
+            @if (staff_repre_obj == null)
+            {
+                <div class="row" style="text-align:right;width:100%;">
+                    <button class="btn-primary" type="button" onclick="Delegate_Staff()" id="delegate_authority_button_id">
+                    + Delegate
+                    </button>
+                </div>
+            }
+
+            else
+            {
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                    <h3>Delegated Employee</h3>
+                    <table class="table-responsive" style="width:100%;">
+                        <tr>
+                            <th>
+                                Staff Name
+                            </th>
+                            <th>
+                                Duty Start Date
+                            </th>
+                            <th>
+                                Duty End Date
+                            </th>
+                            <th>
+                                Cancel
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                @staff_repre_obj.representative_staff_obj.name
+                            </td>
+                            <td>
+                                @staff_repre_obj.start_date
+                            </td>
+                            <td>
+                                @staff_repre_obj.end_date
+                            </td>
+                            <td>
+                                <button class="btn-danger" onclick="Cancel_Authority(@staff_repre_obj.staff_representativeId)">Cancel Authority</button>
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                    }
+
+                </div>
+                <div class="row">
+                    @using (Html.BeginForm("Delegate_Authority_Staff", "Head", FormMethod.Post))
+                    {
+                        <table class="table-responsive" id="delegate_data_table" style="visibility:hidden;width:100%;">
+                            <tr>
+                                <th>
+                                    Staff List
+                                </th>
+                                <th>
+                                    Start Date
+                                </th>
+                                <th>
+                                    End Date
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </tr>
+                            <tr>
+                                <td class="damaged_item_row">
+                                    <select id="staff_list" name="staff_list"></select>
+                                </td>
+                                <td>
+                                    <input type="date" name="start_date_box" min="2020-01-27">
+                                </td>
+                                <td>
+                                    <input type="date" name="end_date_box" min="2020-01-27">
+                                </td>
+                                <td>
+                                    <button class="btn-danger" type="submit" id="Delegate_Authority_Staff">Delegate</button>
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </div>
+                <div class="row" style="padding-top:25px;">
+                    <h3> Staff List </h3>
+                    <table class="table-reponsive" style="width:100%;">
+                        <tr>
+                            <th>StaffID</th>
+                            <th>Staff Name</th>
+                            <th>Staff Account</th>
+                            <th>Staff Position</th>
+                        </tr>
+                        @{
+                            List<staff> staff_lis = (List<staff>)ViewBag.Staff_lis;
+
+                            foreach (staff temp_staff in staff_lis)
+                            {
+                                <tr>
+                                    <td>@temp_staff.staffId</td>
+                                    <td>@temp_staff.name</td>
+                                    <td>@temp_staff.email</td>
+                                    <td>@temp_staff.position</td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+</div>
+
+<script type="text/javascript">
+    function Cancel_Authority(input_data)
+    {
+        //alert("Cancel ID" + input_data);
+        var ajax_obj = {
+            name: input_data,
+            main_data: input_data,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Cancel_Authority",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+               // alert("SUCCESS");
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+    }
+
+    function cancel_reject_order_request(input_data)
+    {
+
+        var ajax_obj = {
+            name: "item_request",
+            main_data: input_data,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Cancel_Reject_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+
+    function Delegate_Staff() {
+        document.getElementById('delegate_authority_button_id').style.visibility = 'hidden';
+        var ajax_obj = {
+            name: "delegate_autority",
+            main_data: ["item_one"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Delegate_Autority_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response)
+            {
+                var drop_down_list = document.getElementById("staff_list");
+                drop_down_list.options.length = 0;
+
+                var staff_lis = JSON.stringify(response.key_staff_lis);
+                var data = staff_lis.split(",");
+
+                for (i = 0; i < data.length; i++) {
+                    data[i] = data[i].replace('[', '');
+                    data[i] = data[i].replace(']', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('\\', '');
+                    var option = document.createElement("option");
+                    option.text = data[i];
+                    option.value = data[i];
+                    drop_down_list.add(option, 0);
+                    
+                }
+                var delegate_table_id = document.getElementById("delegate_data_table");
+                delegate_table_id.style.visibility = 'visible';
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>
+
+

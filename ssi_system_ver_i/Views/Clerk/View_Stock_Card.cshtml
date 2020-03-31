@@ -1,0 +1,99 @@
+﻿@model ssi_system_ver_i.Models.stock_card
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Stock_Card";
+}
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Clerk_LeftPanel");
+
+            List<stock_card> stock_card_lis = (List<stock_card>)ViewBag.Stock_Card_Lis;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">Stock Card</h2>
+        </div>
+        
+        @if(stock_card_lis.Count == 0)
+        {
+
+        }
+        else
+        {
+    <table class="table-responsive" style="width:100%">
+
+        @for (int i = 0; i < stock_card_lis.Count; i++)
+        {
+            stock_card temp_stock_card_obj = stock_card_lis[i];
+
+            if (i == 0)
+            {
+                <tr>
+                    <th height="30">
+                        No.
+                    </th>
+                    <th height="30">
+                        Arrival Date
+                    </th>
+                    <th height="30">
+                        Department/Supplier
+                    </th>
+                    <th height="30">
+                        Item Name
+                    </th>
+                    <th height="30">
+                        Order Quantity
+                    </th>
+                </tr>
+                <tr>
+                    <td height="30">
+                        @temp_stock_card_obj.stock_cardId
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.Arrival_Date
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.department_supplier_name
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.item_obj.item_description
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.sign_and_quantity
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td height="30">
+                        @temp_stock_card_obj.stock_cardId
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.Arrival_Date
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.department_supplier_name
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.item_obj.item_description
+                    </td>
+                    <td height="30">
+                        @temp_stock_card_obj.sign_and_quantity
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+        }
+
+    </div>
+
+</div>

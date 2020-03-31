@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body onload="Check_LINK_Selection()">
+    @{
+        Html.RenderPartial("_Layout_Header");
+    }
+
+    <div class="container-fluid body-content">
+        <div class="container-fluid">
+
+            <div class="row" style="padding-top:70px;">
+
+                    @RenderBody()
+            </div>
+
+        </div>
+        <hr />
+        <footer style="text-align:center;">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        function Transport_JSON(target_data, hit_controller_action_method) {
+            // Send JSON data to server's controller-action-method
+            $.ajax({
+                type: "POST",
+                url: hit_controller_action_method,
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(target_data),
+                dataType: "json",
+
+                // Response Success
+                success: function (response) {
+                    window.alert("Success");
+                },
+
+                // Response Fail
+                failure: function (response) {
+                    alert("Fail Case");
+                },
+
+                // Response Error
+                error: function (response) {
+                    alert("ERROR case");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

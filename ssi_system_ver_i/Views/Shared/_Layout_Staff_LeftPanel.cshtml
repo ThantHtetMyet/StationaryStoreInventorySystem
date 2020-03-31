@@ -1,0 +1,61 @@
+﻿<style>
+
+    .left_panel_li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+        border: 1px solid #555;
+        text-align: center;
+    }
+
+    .left_panel_item a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-bottom: 1px solid #555;
+    }
+
+        .left_panel_item a.active {
+            background-color: #666798;
+            color: white;
+        }
+
+        .left_panel_item a:hover:not(.active) {
+            background-color: #666798;
+            color: white;
+        }
+</style>
+<ul class="left_panel_li">
+
+    <li class="left_panel_item">
+        <a href="@Url.Action("View_Request_Item", "Staff")" id="View_Request_Item" class="active">
+            Request Item
+        </a>
+    </li>
+    <li class="left_panel_item">
+        <a href="@Url.Action("View_History_Request_Items", "Staff")" id="View_History_Request_Items">
+            History Request Item
+        </a>
+    </li>
+</ul>
+
+
+<script type="text/javascript">
+
+    function Check_LINK_Selection() {
+
+        var data = window.location.href;
+        var url_arr = data.split("/");
+
+        var click_ele = document.getElementById(url_arr[url_arr.length - 1]);
+
+        var active_ele_id = document.querySelector(".active").id;
+        var active_ele = document.getElementById(active_ele_id);
+
+        active_ele.setAttribute("class", "");
+        click_ele.setAttribute("class", "active");
+    }
+
+</script>

@@ -1,0 +1,423 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Stationary_Retrival_Form";
+}
+
+    <div class="row" style="padding-top:70px;">
+        <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+            @{
+                Html.RenderPartial("_Layout_Clerk_LeftPanel");
+
+                List<orders> order_lis = (List<orders>)ViewBag.Order_List;
+                List<items_warehouse> item_ware_lis = (List<items_warehouse>)ViewBag.Item_Warehouse_List;
+                List<department> department_lis = (List<department>)ViewBag.Department_List;
+
+                string item_description = "";
+                int total = 0;
+
+                // Department and Quantity
+                Dictionary<string, int> depart_name_and_quantity = new Dictionary<string, int>();
+                Dictionary<string, string> depart_name_and_order_ids = new Dictionary<string, string>();
+
+                int department_and_quantity = 0;
+                int actual_quantity_bx_name_id = 0;
+                string actual_quantity_bx_name = "";
+                Boolean flag = true;
+
+                int input_bx_count = 0;
+            }
+
+        </div>
+        <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+            <div class="row" style="text-align:center;">
+                <h2>Stationary Retrival Form</h2>
+            </div>
+
+            <div class="row">
+                <table class="table" id="stationary_retrieval_form_table_id">
+                    
+                    @using (Html.BeginForm("Create_Stationary_Retrival_Form", "Clerk", FormMethod.Post, new { id = "srf_form_id" }))
+                            {
+                                for (int j = 0; j < order_lis.Count; j++)
+                                {
+                                    department dept = department_lis[j];
+                                    orders temp_order = order_lis[j];
+                                    items_warehouse temp_item_ware = item_ware_lis[j];
+
+                                    if (j == 0)
+                                    {
+                                        item_description = temp_order.item_obj.item_description;
+
+                                        total = total + temp_order.proposed_quantity;
+
+                                        depart_name_and_quantity.Add(temp_order.staff_obj.department_obj.department_name, temp_order.proposed_quantity);
+                                        department_and_quantity = temp_order.proposed_quantity;
+
+                                        // DEPT and ORDER ID Collection
+                                        depart_name_and_order_ids.Add(temp_order.staff_obj.department_obj.department_name, temp_order.ordersId.ToString());
+
+                                <tr class="success">
+                                    <th>
+                                        Bin #
+                                    </th>
+                                    <th>
+                                        Stationery Description
+                                    </th>
+                                    <th colspan="2" style="text-align:center;">
+                                        Total Quantity
+                                    </th>
+                                    <th colspan="3" style="text-align:center;">
+                                        Breakdown by Department
+                                    </th>
+                                </tr>
+                                <tr class="success">
+                                    <th></th>
+                                    <th></th>
+                                    <th>
+                                        Needed
+                                    </th>
+                                    <th>
+                                        Retrieved
+                                    </th>
+                                    <th>
+                                        Dept Name
+                                    </th>
+                                    <th>
+                                        Needed
+                                    </th>
+                                    <th>
+                                        Actual
+                                    </th>
+                                </tr>
+                            }
+                            else if (item_description != temp_order.item_obj.item_description)
+                            {
+                                System.Diagnostics.Debug.WriteLine( "DIFFERENT ITEM NAME " );
+                                System.Diagnostics.Debug.WriteLine( "PRINT ONE ROW FOR " + item_description );
+
+                                int count = 0;
+                                int row_span_count = depart_name_and_quantity.Count;
+
+                                orders old_order_val = order_lis[j - 1];
+                                items_warehouse old_item_ware_val = item_ware_lis[j - 1];
+                                string item_warehouse_quantity_bx_name = temp_order.item_obj.itemId + temp_order.item_obj.item_description;
+
+                                foreach (KeyValuePair<string, int> temp_data in depart_name_and_quantity)
+                                {
+                                    string dept_name = temp_data.Key;
+                                    int quantity = temp_data.Value;
+                                    count = count + 1;
+                                    actual_quantity_bx_name_id = actual_quantity_bx_name_id + 1;
+                                    actual_quantity_bx_name = old_order_val.item_obj.itemId + dept_name + actual_quantity_bx_name_id;
+                                    actual_quantity_bx_name = actual_quantity_bx_name.Replace(" ", "");
+
+                                    string temp_dept_name_and_order_id = depart_name_and_order_ids[dept_name];
+                                    System.Diagnostics.Debug.WriteLine( "Print for " + dept_name );
+                                    System.Diagnostics.Debug.WriteLine( "Print for " + temp_dept_name_and_order_id );
+
+                                    if (flag)
+                                    {
+                                        input_bx_count = input_bx_count + 1;
+
+                                        flag = false;
+                                        <tr class="info">
+                                            <td>
+                                                @old_order_val.item_obj.itemId
+                                            </td>
+                                            <td>
+                                                @old_order_val.item_obj.item_description
+                                            </td>
+                                            <td>
+                                                @total
+                                            </td>
+                                            <td>
+                                                @old_item_ware_val.stock_balance
+                                            </td>
+                                            <td>
+                                                @dept_name
+                                            </td>
+                                            <td>
+                                                @quantity
+                                            </td>
+                                            <td>
+                                                <input type="number" max="50" id="Actual_Quantity_Delivered_@input_bx_count" name="Actual_Quantity_Delivered_@input_bx_count" />
+                                            </td>
+                                            <td>
+                                                <input type="text" id="temp_dept_name_and_order_id" style="display:none;"  name="Store_Order_ID_@input_bx_count" value="@temp_dept_name_and_order_id"/>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        actual_quantity_bx_name = actual_quantity_bx_name.Replace(" ", "");
+                                        input_bx_count = input_bx_count + 1;
+
+                                        <tr class="info">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                @dept_name
+                                            </td>
+                                            <td>
+                                                @quantity
+                                            </td>
+                                            <td>
+                                                <input type="number" max="50"  id="Actual_Quantity_Delivered_@input_bx_count"  name="Actual_Quantity_Delivered_@input_bx_count" required/>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="temp_dept_name_and_order_id" style="display:none;" name="Store_Order_ID_@input_bx_count" value="@temp_dept_name_and_order_id" required/>
+                                            </td>
+                                        </tr>
+                                    }
+                                    if (count == row_span_count)
+                                    {
+                                        flag = true;
+
+                                        // CLEAR VALUES
+
+                                        depart_name_and_quantity = new Dictionary<string, int>();
+                                        depart_name_and_order_ids = new Dictionary<string, string>();
+
+                                        count = 0;
+
+                                        // DEPARTMENT NAME AND QUANTITY
+                                        depart_name_and_quantity.Add(temp_order.staff_obj.department_obj.department_name, temp_order.proposed_quantity);
+
+                                        // DEPARTMENT NAME and ORDERS ID
+                                        depart_name_and_order_ids.Add(temp_order.staff_obj.department_obj.department_name, temp_order.ordersId.ToString());
+                                    }
+
+                                }
+                                total = 0;
+                                item_description = temp_order.item_obj.item_description;
+                                total = total + temp_order.proposed_quantity;
+                            }
+
+                            // Equal Department Name 
+                            else if (item_description == temp_order.item_obj.item_description)
+                            {
+                                System.Diagnostics.Debug.WriteLine( "ALREADY ITEM ITEM NAME " );
+                                System.Diagnostics.Debug.WriteLine( item_description );
+
+                                total = total + temp_order.proposed_quantity;
+
+                                if (depart_name_and_quantity.ContainsKey(temp_order.staff_obj.department_obj.department_name))
+                                {
+                                    department_and_quantity = temp_order.proposed_quantity + depart_name_and_quantity[temp_order.staff_obj.department_obj.department_name];
+                                    depart_name_and_quantity[temp_order.staff_obj.department_obj.department_name] = department_and_quantity;
+                                }
+                                else
+                                {
+                                    depart_name_and_quantity.Add(temp_order.staff_obj.department_obj.department_name, temp_order.proposed_quantity);
+                                    department_and_quantity = 0;
+                                }
+
+                                // DEPARTMENT NAME and ORDERS ID
+                                if (depart_name_and_order_ids.ContainsKey(temp_order.staff_obj.department_obj.department_name))
+                                {
+                                    System.Diagnostics.Debug.WriteLine( "Already department name: " + temp_order.staff_obj.department_obj.department_name );
+
+                                    string dept_order_temp = depart_name_and_order_ids[temp_order.staff_obj.department_obj.department_name];
+
+                                    dept_order_temp = dept_order_temp + "_" + temp_order.ordersId;
+
+                                    depart_name_and_order_ids[temp_order.staff_obj.department_obj.department_name] = dept_order_temp;
+                                }
+                                else
+                                {
+                                    System.Diagnostics.Debug.WriteLine( "New department name: " + temp_order.staff_obj.department_obj.department_name );
+
+                                    depart_name_and_order_ids.Add(temp_order.staff_obj.department_obj.department_name, temp_order.ordersId.ToString());
+                                }
+                            }
+
+                            // LAST DATA
+                            if (j + 1 == order_lis.Count)
+                            {
+                                System.Diagnostics.Debug.WriteLine( "Last Row" );
+
+                                int row_span_count = depart_name_and_quantity.Count;
+                                int count = 0;
+
+                                string item_warehouse_quantity_bx_name = temp_order.item_obj.itemId + temp_order.item_obj.item_description;
+
+                                foreach (KeyValuePair<string, int> temp_data in depart_name_and_quantity)
+                                {
+                                    string dept_name = temp_data.Key;
+                                    int quantity = temp_data.Value;
+                                    count = count + 1;
+                                    actual_quantity_bx_name_id = actual_quantity_bx_name_id + 1;
+                                    actual_quantity_bx_name = temp_order.item_obj.itemId + dept_name + actual_quantity_bx_name_id;
+                                    actual_quantity_bx_name = actual_quantity_bx_name.Replace(" ", "");
+
+                                    string temp_dept_name_and_order_id = depart_name_and_order_ids[dept_name];
+
+                                    if (flag)
+                                    {
+                                        input_bx_count = input_bx_count + 1;
+                                        flag = false;
+                                        <tr class="info">
+                                            <td>
+                                                @temp_order.item_obj.itemId
+                                            </td>
+                                            <td>
+                                                @temp_order.item_obj.item_description
+                                            </td>
+                                            <td>
+                                                @total
+                                            </td>
+                                            <td>
+                                                @temp_item_ware.stock_balance
+                                            </td>
+                                            <td>
+                                                @dept_name
+                                            </td>
+                                            <td>
+                                                @quantity
+                                            </td>
+                                            <td>
+                                                <input type="number" max="50" id="Actual_Quantity_Delivered_@input_bx_count" name="Actual_Quantity_Delivered_@input_bx_count" required/>
+                                            </td>
+                                            <td>
+                                                <input type="text" id="temp_dept_name_and_order_id" style="display:none;" name="Store_Order_ID_@input_bx_count" value="@temp_dept_name_and_order_id" required/>
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        input_bx_count = input_bx_count + 1;
+
+                                        <tr class="info">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
+                                                @dept_name
+                                            </td>
+                                            <td>
+                                                @quantity
+                                            </td>
+                                            <td>
+                                                <input type="number" max="50" id="Actual_Quantity_Delivered_@input_bx_count" name="Actual_Quantity_Delivered_@input_bx_count" required/>
+
+                                                <input type="number" id="@actual_quantity_bx_name" style="display:none;" name="Store_Order_ID_@input_bx_count" value="@temp_dept_name_and_order_id" required/>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    if (count == row_span_count - 1)
+                                    {
+                                        flag = true;
+
+                                        // CLEAR VALUES
+
+                                        depart_name_and_quantity = new Dictionary<string, int>();
+                                        depart_name_and_order_ids = new Dictionary<string, string>();
+
+                                        count = 0;
+
+                                        // DEPARTMENT NAME AND QUANTITY
+                                        depart_name_and_quantity.Add(temp_order.staff_obj.department_obj.department_name, temp_order.proposed_quantity);
+
+                                        // DEPARTMENT NAME and ORDERS ID
+                                        depart_name_and_order_ids.Add(temp_order.staff_obj.department_obj.department_name, temp_order.ordersId.ToString());
+                                    }
+                                }
+                            }
+                        }
+                        if (order_lis.Count != 0)
+                        {
+                            <tr class="info">
+                                <td colspan="7" style="text-align:right;">
+                                    <input type="submit" class="btn-info" value="Confirm" onclick="Support_Item(@actual_quantity_bx_name_id)" />
+                                    <input type="text" style="display:none;" name="input_bx_count_name" value="@input_bx_count"/>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+    function Support_Item(actual_quantity_bx_number)
+    {
+        // Table ID
+        var srf_table = document.getElementById("stationary_retrieval_form_table_id");
+
+        // Number of Rows
+        var row_count = srf_table.rows.length;
+        
+        var i;
+        var total_quantity_requested_by_dept = 0;
+
+        for (i = 2; i < row_count; i++)
+        {
+            //gets cells of current row
+            var oCells = srf_table.rows.item(i).cells;
+            
+            //gets amount of cells of current row
+            var cellLength = oCells.length;
+
+            var item_description;
+            var quantity_in_item_warehouse;
+            var actual_quantity_approved_to_dept;
+            
+
+            //loops through each cell in current row
+            var item_description;
+
+            if ( oCells.item(1).innerHTML != '')
+            {
+                    item_description = oCells.item(1).innerHTML;
+
+                quantity_in_item_warehouse = oCells.item(3).innerHTML;
+
+                    department_name = oCells.item(4).innerHTML;
+                    request_quantity_by_dept = oCells.item(5).innerHTML;
+                    
+                    actual_quantity_approved_to_dept = oCells.item(6).innerHTML;
+
+                var data = actual_quantity_approved_to_dept.split('"');
+                var actual_quantity_bx = data[7];
+                total_quantity_requested_by_dept = parseInt(document.getElementById(actual_quantity_bx).value);
+            }
+            else
+            {
+                actual_quantity_approved_to_dept = oCells.item(6).innerHTML;
+                department_name = oCells.item(4).innerHTML;
+                request_quantity_by_dept = oCells.item(5).innerHTML;
+                actual_quantity_approved_to_dept = oCells.item(6).innerHTML;
+                var data = actual_quantity_approved_to_dept.split('"');
+                var actual_quantity_bx = data[7];
+                total_quantity_requested_by_dept = total_quantity_requested_by_dept + parseInt(document.getElementById(actual_quantity_bx).value);
+            }
+            
+            if (quantity_in_item_warehouse < total_quantity_requested_by_dept)
+            {
+                var warning_noti = " ▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \n\n" + "                      ITEM : " + item_description.replace("\n", "").trim() + " exceed limit! \n" + "\n ▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬" ;
+                
+                alert(warning_noti);
+                Stop_Form_Submit();
+                break;
+            }
+        }
+    }
+
+    function Stop_Form_Submit() {
+        $("#srf_form_id").submit(function (e)
+        {
+            // note that it's better to use form Id to select form
+
+            e.preventDefault(); // here you stop submitting form
+        });
+    }
+    
+</script>

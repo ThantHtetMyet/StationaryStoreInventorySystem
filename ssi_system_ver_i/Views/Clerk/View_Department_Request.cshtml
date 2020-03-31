@@ -1,0 +1,234 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Department_Request";
+}
+
+
+    <div class="row" style="padding-top:70px;">
+        <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+            @{
+                Html.RenderPartial("_Layout_Clerk_LeftPanel");
+                List<orders> order_lis = (List<orders>)ViewBag.Order_List;
+                List<item> item_lis = (List<item>)ViewBag.Item_List;
+                List<department> department_lis =(List<department>) ViewBag.Department_List;
+                string dept_name = "";
+                int total = 0;
+            }
+        </div>
+
+        <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+            <div class="row" style="text-align:center;">
+                <h2>Department Requests</h2>
+            </div>
+
+            <div class="row">
+                @if (department_lis.Count == 0)
+                {
+                    <h1 style="text-align:center;">
+                        <i>
+                            No Departments' Requests !
+                        </i>
+                    </h1>
+                }
+                else
+                {
+                    for (int i = 0; i < department_lis.Count; i++)
+                    {
+                        int sub_total = item_lis[i].unit_price * order_lis[i].proposed_quantity;
+                        Boolean head_flag = false;
+                        Boolean button_flag = false;
+
+                        if (i == 0 || dept_name != department_lis[i].department_name)
+                        {
+                            if (i == 0)
+                            {
+                                head_flag = true;
+                            }
+                            else if (dept_name != department_lis[i].department_name)
+                            {
+                                head_flag = true;
+                                button_flag = true;
+                            }
+                            dept_name = department_lis[i].department_name;
+                        }
+
+                        if (button_flag)
+                        {
+
+                            button_flag = false;
+
+                            <div class="row" style="height:50px;">
+                                <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10" style="text-align:right;">
+                                    <label style="font-weight:bold;">Total</label>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                                    <i> @total </i>
+                                    $
+                                </div>
+                            </div>
+                            <!--
+                <div class="row" style="text-align:right;width:100%;">
+                    <div class="col-xs-5 col-sm-5 col-lg-5 col-md-5" style="text-align:right; height:50px;">
+
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-lg-7 col-md-7" style="text-align:right;">
+                        <button class="btn-primary" type="button" onclick="Approve_Department_Requests('@department_lis[i-1].department_name')" id="Approve_Department_Requests_Button_Id">
+                            + Approve
+                        </button>
+                        <button class="btn-danger" type="button" onclick="Reject_Department_Requests('@department_lis[i-1].department_name')" id="Reject_Department_Requests_Button_Id">
+                            + Reject
+                        </button>
+                    </div>
+                </div>
+                    -->
+                            total = 0;
+                        }
+                        if (head_flag)
+                        {
+                            head_flag = false;
+                            <h2>@dept_name</h2>
+                            <div class="row" style="height:30px;">
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                                    Item Name
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:right;font-weight:bold;">
+                                    Quantity
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                                    Unit Price
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:center;font-weight:bold;">
+                                    Sub_Total
+                                </div>
+                            </div>
+                        }
+                        if (!head_flag && !button_flag)
+                        {
+                            <div class="row" style="height:30px;">
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                                    @item_lis[i].item_description
+                                </div>
+                                <div class="col-xs-2 col-sm-3 col-lg-3 col-md-3" style="text-align:right;">
+                                    @order_lis[i].proposed_quantity
+                                    &nbsp; x
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                                    @item_lis[i].unit_price
+                                </div>
+                                <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:center;">
+                                    @sub_total
+                                </div>
+                            </div>
+                        }
+                        if (i + 1 == order_lis.Count)
+                        {
+                            total = sub_total + total;
+                            <div class="row" style="height:50px;">
+                                <div class="col-xs-10 col-sm-10 col-lg-10 col-md-10" style="text-align:right;">
+                                    <label style="font-weight:bold;">Total</label>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                                    <i> @total </i>
+                                    $
+                                </div>
+                            </div>
+                            <!--
+                <div class="row" style="text-align:right;width:100%; height:50px;">
+                    <div class="col-xs-5 col-sm-5 col-lg-5 col-md-5" style="text-align:right;">
+
+                    </div>
+                    <div class="col-xs-7 col-sm-7 col-lg-7 col-md-7" style="text-align:right;">
+                        <button class="btn-primary" type="button" onclick="Approve_Department_Requests('@department_lis[i].department_name')" id="Approve_Department_Requests_Button_Id">
+                            + Approve
+                        </button>
+                        <button class="btn-danger" type="button" onclick="Reject_Department_Requests('@department_lis[i].department_name')" id="Reject_Department_Requests_Button_Id">
+                            + Reject
+                        </button>
+                    </div>
+                </div>
+                    -->
+                            total = 0;
+                        }
+                        total = sub_total + total;
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function Approve_Department_Requests(dept_name) {
+        //alert("APPROVE");
+        alert(dept_name);
+
+        var ajax_obj = {
+            name: dept_name,
+            main_data: [dept_name],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Clerk/Ajax_Approve_Department_Request",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+                var status = JSON.stringify(response.item_quantity_status);
+                var stock_level = JSON.stringify(response.stock_level_status);
+                var order_id = JSON.stringify(response.order_identity_status);
+                status = status.replace('"', '');
+                status = status.replace('"', '');
+
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+    }
+    function Reject_Department_Requests(dept_name) {
+        //alert("REJECT");
+        //alert(dept_name);
+
+        var ajax_obj = {
+            name: dept_name,
+            main_data: [dept_name],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Clerk/Ajax_Reject_Department_Request",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+                //alert("SUCCESS");
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>

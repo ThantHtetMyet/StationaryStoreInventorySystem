@@ -1,0 +1,74 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_History_Request_Items";
+}
+
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Staff_LeftPanel");
+
+            List<orders> orders_lis  =  (List<orders>)ViewBag.order_lis ;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">
+              History Request Items
+            </h2>
+        </div>
+        <div class="row">
+            @if (orders_lis.Count == 0)
+            {
+                <div class="jumbotron">
+                    <h2 id="no_request_txt" style="text-align:center;">
+                        <i>
+                            No Requested Item!
+                        </i>
+                    </h2>
+                </div>
+            }
+            else
+            {
+                <table class="table">
+                    <tr class="success">
+                        <th  style="text-align:center;">
+                            Order ID
+                        </th>
+                        <th  style="text-align:center;">
+                            Delivered Date
+                        </th>
+                        <th  style="text-align:center;">
+                            Order Code
+                        </th>
+                        <th  style="text-align:center;">
+                            Quantity
+                        </th>
+                    </tr>
+                    @foreach(orders temp_order in orders_lis)
+                    {
+                        <tr class="info" style="text-align:center;">
+                            <td>
+                                @temp_order.ordersId
+                            </td>
+                            <td>
+                                @temp_order.delivered_order_date
+                            </td>
+                            <td>
+                                @temp_order.item_obj.item_description
+                            </td>
+                            <td>
+                                @temp_order.actual_delivered_quantity_by_clerk
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+        </div>
+        </div>
+    </div>

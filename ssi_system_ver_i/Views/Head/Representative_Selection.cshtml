@@ -1,0 +1,170 @@
+﻿@model ssi_system_ver_i.Models.staff
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "Representative_Selection";
+}
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Head_LeftPanel");
+            
+            staff_representative staff_repre_obj = (staff_representative) ViewBag.Staff_Representative;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <div class="row">
+                <h2 style="text-align:center;">RepresentativeSelection</h2>
+            </div>
+            <div class="row" style="padding-left:15px;">
+                <h3>Department: @ViewBag.Dept_name</h3>
+            </div>
+            <div class="row" style="width:100%;text-align:right;">
+                <button class="btn-primary" id="representative_authority_button_id" onclick="Change_Representative()">
+                    + Change Representative
+                </button>
+            </div>
+            <div class="row" style="text-align:center;">
+                @using (Html.BeginForm("Representative_Authority_Staff", "Head", FormMethod.Post))
+                {
+                    <table class="table-responsive" id="representative_data_table" style="visibility:hidden;width:70%;">
+                        <tr>
+                            <th style="text-align:center;">
+                                Staff List
+                            </th>
+                            <th style="text-align:center;">
+                               Confirm
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="damaged_item_row">
+                                <select id="staff_list" name="staff_list"></select>
+                            </td>
+                            
+                            <td>
+                                <button class="btn-danger" type="submit" id="Delegate_Authority_Staff">Confirm</button>
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+        </div>
+        <div class="row">
+            <h3> Staff List </h3>
+            <table class="table-reponsive" style="width:100%;">
+                <tr>
+                    <th>StaffID</th>
+                    <th>Staff Name</th>
+                    <th>Staff Account</th>
+                    <th>Staff Position</th>
+                </tr>
+                @{
+                    List<staff> staff_lis = (List<staff>)ViewBag.Staff_lis;
+
+                    foreach (staff temp_staff in staff_lis)
+                    {
+                        <tr>
+                            <td>@temp_staff.staffId</td>
+                            <td>@temp_staff.name</td>
+                            <td>@temp_staff.email</td>
+                            <td>@temp_staff.position</td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+        
+    </div>
+<script type="text/javascript">
+    function Change_Representative()
+    {
+        //alert("Representative");
+        document.getElementById('representative_authority_button_id').style.visibility = 'hidden';
+
+        var ajax_obj = {
+            name: "representative_autority",
+            main_data: ["item_one"],
+        };
+
+        
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Representative_Autority_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response)
+            {
+                var drop_down_list = document.getElementById("staff_list");
+                drop_down_list.options.length = 0;
+
+                var staff_lis = JSON.stringify(response.key_staff_lis);
+                var data = staff_lis.split(",");
+
+                for (i = 0; i < data.length; i++) {
+                    data[i] = data[i].replace('[', '');
+                    data[i] = data[i].replace(']', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('\\', '');
+                    var option = document.createElement("option");
+                    option.text = data[i];
+                    option.value = data[i];
+                    drop_down_list.add(option, 0);
+                    
+                }
+                var representative_table_id = document.getElementById("representative_data_table");
+                representative_table_id.style.visibility = 'visible';
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+
+    function Cancel_Representative(input_data)
+    {
+         var ajax_obj = {
+            name: input_data,
+            main_data: input_data,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Cancel_Representative_Staff",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+</script>

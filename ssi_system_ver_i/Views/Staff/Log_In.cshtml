@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Log_In";
+}
+    <div class="row">
+        <h2 style="text-align:center;">Log_In</h2>
+        @using (Html.BeginForm("SignIn", "Staff", FormMethod.Post))
+        {
+
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <input type="email" name="log_email_bx" id="login_email_bx" class="form-control" placeholder="Email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,9}$" style="border: none;border-bottom:1px solid #000000;border-radius:0;-webkit-box-shadow: none;box-shadow: none;background: transparent;margin:0 auto;" required>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <input type="password" name="login_passwd_bx" id="login_password_bx" class="form-control" placeholder="Password" style="border: none;border-bottom:1px solid #000000;border-radius:0;-webkit-box-shadow: none;box-shadow: none;background: transparent;margin:0 auto;" required>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-6- col-xs-6 col-md-6 col-lg-6" id="sign_in_customer_div">
+                    <button type="submit" class="btn btn-default" id="sign_in_customer" style="float:right;">Submit</button>
+                </div>
+                <div class="col-sm-6- col-xs-6 col-md-6 col-lg-6" id="cancel_sign_in_customer_div">
+                    <a href="@Url.Action("Index", "Home")" role="button" class="btn btn-default">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+            <br />
+            <div class="row text-center">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <a href="#" style="text-align:center;">Forget Password!</a>
+                </div>
+            </div>
+            <br />
+        }
+    </div>

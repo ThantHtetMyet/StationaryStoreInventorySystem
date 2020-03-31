@@ -1,0 +1,138 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+@{
+    ViewBag.Title = "View_Staff_Request";
+}
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Head_LeftPanel");
+
+            List<orders> order_lis = (List<orders>) ViewBag.Order_lis;
+
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">Staff_Request</h2>
+             <h2>Department: @ViewBag.Dept_name</h2>
+            </div>
+        <div class="row">
+            @if (order_lis.Count == 0)
+            {
+            <h1 style="text-align:center;">
+                <i>
+                    No Staffs' Request !
+                </i>
+            </h1>
+            }
+            else
+            {
+                <table class="table-reponsive" style="width:100%;">
+                    <tr>
+                        <th>OrderID</th>
+                        <th>Order Date</th>
+                        <th>Staff Name</th>
+                        <th>Order Item</th>
+                        <th>Order Quantity</th>
+                        <th>Order Status</th>
+                        <th>Approve</th>
+                        <th>Reject</th>
+                    </tr>
+                    @{
+
+                        for (int i = 0; i < order_lis.Count; i++)
+                        {
+                            orders or = order_lis[i];
+
+                            <tr>
+                                <td>@or.ordersId</td>
+                                <td>@or.start_order_date</td>
+                                <td>@or.staff_obj.name</td>
+                                <td>@or.item_obj.item_description</td>
+                                <td>@or.proposed_quantity</td>
+                                <td>@or.order_status</td>
+                                <td>
+                                    <button class="btn-default" type="button" value="@or.ordersId" onclick="approve_order_request(@or.ordersId)">Approve</button>
+                                </td>
+                                <td>
+                                    <button class="btn-danger" type="button" value="@or.ordersId" onclick="reject_order_request(@or.ordersId)">Reject</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function approve_order_request(input_data) {
+     
+        var ajax_obj = {
+            name: "item_request",
+            main_data: input_data,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Approve_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                document.location.reload(); 
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+
+    function reject_order_request(input_data_id) {
+
+        
+        var ajax_obj = {
+            name: "item_request",
+            main_data: input_data_id,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Reject_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                document.location.reload(); 
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,81 @@
+﻿
+@model ssi_system_ver_i.Models.suppliers
+@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Maintain_SupplierList";
+}
+
+
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Manager_LeftPanel");
+
+            List<suppliers> supp_lis = (List<suppliers>)ViewBag.Sup_List;
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row" style="text-align:center;">
+            <h2>SupplierList</h2>
+        </div>
+
+        <div class="row">
+            @if (supp_lis.Count == 0)
+            {
+                <h1 style="text-align:center;">
+                    <i> No Suppliers</i>
+                </h1>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                        Supplier Name
+                    </div>
+
+                    <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:left;font-weight:bold;">
+                        Contact Name
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:left;font-weight:bold;">
+                        Fax
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;font-weight:bold;">
+                        Address
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:right;font-weight:bold;">
+                        Phone
+                    </div>
+                </div>
+
+                for (int i = 0; i < supp_lis.Count; i++)
+                {
+
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                            @supp_lis[i].name
+                        </div>
+
+                        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:left;">
+                            @supp_lis[i].contact_name
+
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:left;">
+                            @supp_lis[i].fax
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-lg-3 col-md-3" style="text-align:left;">
+                            @supp_lis[i].address
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2 col-md-2" style="text-align:right;">
+                            @supp_lis[i].phone
+                        </div>
+                    </div>
+
+                }
+            }
+
+            </div>
+        </div>
+</div>

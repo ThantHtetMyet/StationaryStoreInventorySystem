@@ -1,0 +1,98 @@
+﻿@model ssi_system_ver_i.Models.orders
+@using ssi_system_ver_i.Models
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Head_LeftPanel");
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;">Approved Staff Request</h2>
+            <h3>Department: @ViewBag.Dept_name</h3>
+        </div>
+        <div class="row">
+
+            <table class="table-reponsive" style="width:100%;">
+                @{
+                    List<orders> order_lis = (List<orders>)ViewBag.Order_lis;
+
+                    if (order_lis.Count == 0)
+                    {
+                        <h3 style="text-align:center;"> Empty List!</h3>
+                    }
+                    else
+                    {
+
+                        for (int i = 0; i < order_lis.Count; i++)
+                        {
+                            orders or = order_lis[i];
+
+                            if (i == 0)
+                            {
+                                <tr>
+                                    <th>OrderID</th>
+                                    <th>Order Date</th>
+                                    <th>Staff Name</th>
+                                    <th>Order Item</th>
+                                    <th>Order Quantity</th>
+                                    <th>Order Status</th>
+                                    <th>Cancel Approve</th>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td>@or.ordersId</td>
+                                <td>@or.start_order_date</td>
+                                <td>@or.staff_obj.name</td>
+                                <td>@or.item_obj.item_description</td>
+                                <td>@or.proposed_quantity</td>
+                                <td>@or.order_status</td>
+                                <td>
+                                    <button class="btn-danger" type="button" value="@or.ordersId" onclick="cancel_approved_request(@or.ordersId)">Cancel Approve</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </table>
+            </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function cancel_approved_request(input_data) {
+
+        var ajax_obj = {
+            name: "item_request",
+            main_data: input_data,
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Head/Ajax_Cancel_Approve_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                document.location.reload();
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+    }
+    </script>

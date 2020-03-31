@@ -1,0 +1,212 @@
+﻿@using ssi_system_ver_i.Models
+
+@{
+    ViewBag.Title = "View_Adjustment_Voucher";
+}
+
+<div class="row" style="padding-top:70px;">
+    <div class="col-sm-3 col-xs-3 col-lg-3 col-md-3">
+        @{
+            Html.RenderPartial("_Layout_Clerk_LeftPanel");
+        }
+    </div>
+
+    <div class="col-sm-7 col-xs-7 col-lg-7 col-md-7">
+        <div class="row">
+            <h2 style="text-align:center;"> Adjustment Voucher</h2>
+
+             </div>
+        <div class="row" style="text-align:right;width:100%;">
+            <button class="btn-primary" style="float:right;" type="button" id="add_damaged_item" value="Add" onclick="Add_Damaged_Item()">
+            + Add Item
+            </button>
+
+        </div>
+        <div class="row" style="text-align:center;padding-top:15px;">
+            @using (Html.BeginForm("Create_Adjustment_Voucher", "Clerk", FormMethod.Post))
+            {
+                <table class="table" id="new_damaged_data_table" style="display:none;width:100%;">
+                    
+                    <tr class="success" style="text-align:center;">
+                        <th  style="text-align:center;">
+                            Item Name
+                        </th>
+                        <th  style="text-align:center;">
+                            Quantity
+                        </th>
+                        <th  style="text-align:center;">
+                            Reason
+                        </th>
+                    </tr>
+                    <tr class="info" style="text-align:center;">
+                        <td class="damaged_item_row">
+                            <select id="item_code_list" name="item_code_list"></select>
+                        </td>
+                        <td>
+                            <input type="text" name="quantity_bx" id="quantity_bx" placeholder="quantity..." />
+                        </td>
+                        <td>
+                            <select id="adjustment_reason" name="adjustment_reason">
+                                <option value="Damaged">Damaged</option>
+                                <option value="Expiry">Expiry</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="info">
+                        <td> </td>
+                        <td></td>
+                        <td>
+                            <button class="btn-success" type="submit" id="Add_one_Damaged_Item">Submit</button>
+                            <button class="btn-danger" type="button" id="Add_one_Damaged_Item" onclick="Cancel_Adjustment_Voucher()">Cancel</button>
+                        </td>
+                    </tr>
+                </table>
+            }
+            <label id="test"></label>
+        </div>
+        <div class="row">
+
+            @{
+                List<adjustment_voucher> adjustment_lis = (List<adjustment_voucher>)ViewBag.adjustment_lis;
+
+                if (adjustment_lis.Count == 0)
+                {
+                    <h1 style="text-align:center;">
+                        <i>
+                            No Item in Adjustment Voucher !
+                        </i>
+                    </h1>
+                }
+                else
+                {
+                    <table style="width:100%;" class="table">
+                        @for (int i = 0; i < adjustment_lis.Count; i++)
+                    {
+                            adjustment_voucher temp = adjustment_lis[i];
+
+                        if (i == 0)
+                        {
+                        <tr class="success">
+                            <th style="text-align:center;">
+                                VoucherID
+                            </th>
+                            <th style="text-align:center;">
+                                Record Date
+                            </th>
+                            <th style="text-align:center;">
+                                Item Code
+                            </th>
+                            <th style="text-align:center;">
+                                Quantity
+                            </th>
+                            <th style="text-align:center;">
+                                Reason
+                            </th>
+                            <th style="text-align:center;">
+                                Status
+                            </th>
+                        </tr>
+                        }
+                        <tr class="info" style="text-align:center;">
+                            <td>
+                                @temp.adjustment_voucherId
+                            </td>
+                            <td>
+                                @temp.record_date
+                            </td>
+                            <td>
+                                @temp.item_obj.item_description
+                            </td>
+                            <td>
+                                @temp.item_quantity
+                            </td>
+                            <td>
+                                @temp.reason
+                            </td>
+                            <td>
+                            @temp.status
+                            </td>
+                        </tr>
+                        }
+                    </table>
+                
+            }
+            }
+
+        </div>
+    </div>
+</div>
+<div class="col-sm-2 col-xs-2 col-lg-2 col-md-2">
+</div>
+
+<script type="text/javascript">
+    function Cancel_Adjustment_Voucher() {
+        document.location.reload();
+    }
+
+    function Add_Damaged_Item() {
+
+        var ajax_obj = {
+            name: "item_request",
+            main_data: ["item_one"],
+        };
+
+        // Send JSON data to server's controller-action-method
+        $.ajax({
+            type: "POST",
+            url: "/Clerk/Ajax_Request_Item",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(ajax_obj),
+            dataType: "json",
+
+            // Response Success
+            success: function (response) {
+
+                //alert("Success Case! Congratulation");
+                //alert(response.total_price);
+                var drop_down_list = document.getElementById("item_code_list")
+
+                var temp = JSON.stringify(response.key_itemname_lis);
+                //alert(temp);
+                //alert(typeof (temp));
+
+                var data = temp.split(",");
+
+                for (i = 0; i < data.length; i++) {
+                    data[i] = data[i].replace('[', '');
+                    data[i] = data[i].replace(']', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('"', '');
+                    data[i] = data[i].replace('\\', '');
+                    var option = document.createElement("option");
+
+                    option.text = data[i];
+                    option.value = data[i];
+                    drop_down_list.add(option, 0);
+                }
+                var new_damaged_data_table = document.getElementById("new_damaged_data_table");
+                new_damaged_data_table.style.display = "";
+                //alert(type(data));
+
+            },
+            // Response Fail
+            failure: function (response) {
+                alert("Fail Case");
+            },
+
+            // Response Error
+            error: function (response) {
+                alert("ERROR case");
+            }
+        });
+
+        var table = document.getElementById("new_damaged_data_table").insertRow(0);
+        var one_bx = document.createElement("input");
+
+        one_bx.setAttribute("type", "text");
+        one_bx.setAttribute("placeholder", "Item Code");
+
+
+    }
+
+</script>
